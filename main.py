@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import praw
 import random
 from discord.ext.commands import Bot
+import asyncio
 
 # Load sensitive data from .env file
 # Create .env file in the same folder and insert your data
@@ -104,4 +105,17 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandInvokeError):
         await ctx.reply("Subreddit is unavailable/invalid argument.")
 
+# Function for changing presence
+async def changePresence():
+    await bot.wait_until_ready()
+
+    statuses = ["your mom | >help", "on {} servers | >help".format(len(bot.guilds)), "Made by Hann#6130 | >help"]
+
+    while not bot.is_closed():
+        status = random.choice(statuses)
+        await bot.change_presence(activity=discord.Game(name=status))
+
+        await asyncio.sleep(10)
+
+bot.loop.create_task(changePresence())
 bot.run(TOKEN)
