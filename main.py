@@ -112,7 +112,7 @@ async def on_command_error(ctx, error):
 async def changePresence():
     await bot.wait_until_ready()
 
-    statuses = ["your mom | >help", "on {} servers | >help".format(len(bot.guilds)), "Made by Hann#6130 | >help"]
+    statuses = ["your mom | >help", f"on {len(bot.guilds)} servers | >help", "Made by Hann#6130 | >help"]
 
     while not bot.is_closed():
         status = random.choice(statuses)
