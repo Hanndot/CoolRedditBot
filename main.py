@@ -30,9 +30,9 @@ bot.remove_command('help') # Removing default help command
 # Event for checking if the bot is online
 @bot.event
 async def on_ready():
-    print('{} is now live on:'.format(bot.user))
+    print(f'{bot.user} is now live on:')
     for guild in bot.guilds:
-        print("-{} ({})".format(guild.name, guild.id))
+        print(f"-{guild.name} ({guild.id})")
 
 # Command for posting a submission from reddit
 # Subreddit name as the argument
@@ -57,14 +57,14 @@ async def post(ctx, subredd):
     # NSFW channel filter conditioning
     # Check if the channel is NSWF then post
     if ctx.channel.is_nsfw():
-        await ctx.reply("{0}\nr/{1}\nby u/{2} (http://redd.it/{3})\n{4}".format(title, name,  op, sub_id, url))
+        await ctx.reply(f"{title}\nr/{name}\nby u/{op} (http://redd.it/{sub_id})\n{url}")
     # Check if the channel is not a NSFW channel then check if the subreddit is NSFW
     # The post will not show up if the subreddit is NSFW
     else:
         if subreddit.over18:
             await ctx.reply("BONK! Go to horny jail")
         else:
-            await ctx.reply("{0}\nr/{1}\nby u/{2} (http://redd.it/{3})\n{4}".format(title, name,  op, sub_id, url))
+            await ctx.reply(f"{title}\nr/{name}\nby u/{op} (http://redd.it/{sub_id})\n{url}")
 
 # Command for sending bee movie script
 # Sending text from bee.txt
