@@ -24,10 +24,7 @@ reddit = praw.Reddit(client_id = c_id,
                     user_agent = agent,
                     check_for_async=False)
 
-# Intents for getting guild.members
-intents = discord.Intents(members=True)
-
-bot = commands.Bot(command_prefix='>', intents=intents)
+bot = commands.Bot(command_prefix='>')
 bot.remove_command('help') # Removing default help command
 
 # Event for checking if the bot is online
