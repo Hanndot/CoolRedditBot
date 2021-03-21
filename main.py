@@ -74,6 +74,19 @@ async def bee(ctx):
         for line in f:
             await ctx.send(line)
 
+# Command for generating bit invite link
+@bot.command()
+async def invite(ctx):
+    link = 'https://discord.com/api/oauth2/authorize?client_id=816638346193010700&permissions=8&scope=bot'
+    em = discord.Embed(
+        title = "CoolRedditBot Invite Link",
+        type = "rich",
+        color = 0xFF5700
+    )
+    em.add_field(name='Here you go :)', value=link)
+
+    await ctx.send(embed=em)
+
 # Command for sending all available commands
 @bot.command(aliases=['h', 'hlep', 'tolong'])
 async def help(ctx):
@@ -86,20 +99,8 @@ async def help(ctx):
     em.add_field(name='>post <subreddit>', value='Get a submission from reddit', inline='false')
     em.add_field(name='>bee', value='Annoy everyone', inline='false')
     em.add_field(name='>help', value='Get list of available commands', inline='false')
+    em.add_field(name='>invite', value='Generate invite link', inline='false')
     em.set_footer(text='Made by Hann#6130')
-
-    await ctx.send(embed=em)
-
-# Command for generating bit invite link
-@bot.command()
-async def invite(ctx):
-    link = 'https://discord.com/api/oauth2/authorize?client_id=816638346193010700&permissions=8&scope=bot'
-    em = discord.Embed(
-        title = "CoolRedditBot Invite Link",
-        type = "rich",
-        color = 0xFF5700
-    )
-    em.add_field(name='Here you go :)', value=link)
 
     await ctx.send(embed=em)
 
