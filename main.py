@@ -74,8 +74,8 @@ async def bee(ctx):
         for line in f:
             await ctx.send(line)
 
-# Command for generating bit invite link
-@bot.command()
+# Command for generating bot invite link
+@bot.command(aliases=['i', 'link'])
 async def invite(ctx):
     link = 'https://discord.com/api/oauth2/authorize?client_id=816638346193010700&permissions=8&scope=bot'
     em = discord.Embed(
