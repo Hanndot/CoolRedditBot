@@ -2,10 +2,14 @@ import os
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+from pathlib import Path
 import praw
 import random
 from discord.ext.commands import Bot
 import asyncio
+
+cwd = Path(__file__).parents[0]
+cwd = str(cwd)
 
 # Load sensitive data from .env file
 # Create .env file in the same folder and insert your data
@@ -131,5 +135,11 @@ async def changePresence():
 
         await asyncio.sleep(10)
 
-bot.loop.create_task(changePresence())
-bot.run(TOKEN)
+if __name__ == '__main__':
+    # Loading all cogs
+    for file in os.listdir(cwd+"/Cogs"):
+        if file.endswith(".py"):
+            bot.load_extension(f"Cogs.{file[:-3]}")
+    # Running the bot
+    bot.loop.create_task(changePresence())
+    bot.run(TOKEN)
