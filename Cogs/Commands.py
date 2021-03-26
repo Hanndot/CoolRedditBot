@@ -4,7 +4,6 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import praw
 import random
-from pathlib import Path
 
 load_dotenv()
 c_id = os.getenv('CLIENT_ID')
@@ -60,6 +59,14 @@ class Commands(commands.Cog):
                 await ctx.reply("BONK! Go to horny jail")
             else:
                 await ctx.reply(f"{title}\nr/{name}\nby u/{op} (http://redd.it/{sub_id})\n{url}")
+    
+    # Command for sending bee movie script
+    # Sending text from bee.txt
+    @commands.command()
+    async def bee(self,ctx):
+        with open('bee.txt', 'r') as f:
+            for line in f:
+                await ctx.send(line)
 
 def setup(bot):
     bot.add_cog(Commands(bot))
