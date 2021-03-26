@@ -29,14 +29,6 @@ async def on_ready():
     for guild in bot.guilds:
         print(f"-{guild.name} ({guild.id})")
 
-# Command for sending bee movie script
-# Sending text from bee.txt
-@bot.command()
-async def bee(ctx):
-    with open('bee.txt', 'r') as f:
-        for line in f:
-            await ctx.send(line)
-
 # Command for generating bot invite link
 @bot.command(aliases=['i', 'link'])
 async def invite(ctx):
