@@ -108,21 +108,6 @@ async def help(ctx):
 
     await ctx.send(embed=em)
 
-# Error Handling Event
-@bot.event
-async def on_command_error(ctx, error):
-    # Check if the argument is missing
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.reply("Please type the subreddit after >post command.")
-    
-    # Check if command is not found
-    if isinstance(error, commands.CommandNotFound):
-        await ctx.reply("Command not found.")
-
-    # Check if there is no subreddit with that name/invalid argument
-    if isinstance(error, commands.CommandInvokeError):
-        await ctx.reply("Subreddit is unavailable/invalid argument.")
-
 # Function for changing presence
 async def changePresence():
     await bot.wait_until_ready()
