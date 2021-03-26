@@ -71,7 +71,9 @@ async def help(ctx):
 async def changePresence():
     await bot.wait_until_ready()
 
-    statuses = ["with your mom | >help", f"on {len(bot.guilds)} servers | >help", "Made by Hann#6130 | >help"]
+    memberCount = len(set(bot.get_all_members()))
+
+    statuses = ["with your mom | >help", f"on {len(bot.guilds)} servers | >help", "Made by Hann#6130 | >help", f"with {memberCount} users"]
 
     while not bot.is_closed():
         status = random.choice(statuses)
