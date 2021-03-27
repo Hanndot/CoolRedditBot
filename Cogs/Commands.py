@@ -67,6 +67,19 @@ class Commands(commands.Cog):
         with open('bee.txt', 'r') as f:
             for line in f:
                 await ctx.send(line)
+    
+    # Command for generating bot invite link
+    @commands.command(aliases=['i', 'link'])
+    async def invite(self, ctx):
+        link = 'https://discord.com/api/oauth2/authorize?client_id=816638346193010700&permissions=8&scope=bot'
+        em = discord.Embed(
+            title = "CoolRedditBot Invite Link",
+            type = "rich",
+            color = 0xFF5700
+        )
+        em.add_field(name='Here you go :)', value=link)
+
+        await ctx.send(embed=em)
 
 def setup(bot):
     bot.add_cog(Commands(bot))
