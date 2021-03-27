@@ -29,23 +29,6 @@ async def on_ready():
     for guild in bot.guilds:
         print(f"-{guild.name} ({guild.id})")
 
-# Command for sending all available commands
-@bot.command(aliases=['h', 'hlep', 'tolong'])
-async def help(ctx):
-    em = discord.Embed(
-        title = "How to use CoolRedditBot",
-        type = "rich",
-        description = "List of available commands",
-        color = 0xFF5700
-    )
-    em.add_field(name='>post <subreddit>', value='Get a submission from reddit', inline='false')
-    em.add_field(name='>bee', value='Annoy everyone', inline='false')
-    em.add_field(name='>help', value='Get list of available commands', inline='false')
-    em.add_field(name='>invite', value='Generate invite link', inline='false')
-    em.set_footer(text='Made by Hann#6130')
-
-    await ctx.send(embed=em)
-
 # Function for changing presence
 async def changePresence():
     await bot.wait_until_ready()
