@@ -80,6 +80,23 @@ class Commands(commands.Cog):
         em.add_field(name='Here you go :)', value=link)
 
         await ctx.send(embed=em)
+    
+    # Command for sending all available commands
+    @commands.command(aliases=['h', 'hlep', 'tolong'])
+    async def help(self, ctx):
+        em = discord.Embed(
+            title = "How to use CoolRedditBot",
+            type = "rich",
+            description = "List of available commands",
+            color = 0xFF5700
+        )
+        em.add_field(name='>post <subreddit>', value='Get a submission from reddit', inline='false')
+        em.add_field(name='>bee', value='Annoy everyone', inline='false')
+        em.add_field(name='>help', value='Get list of available commands', inline='false')
+        em.add_field(name='>invite', value='Generate invite link', inline='false')
+        em.set_footer(text='Made by Hann#6130')
+
+        await ctx.send(embed=em)
 
 def setup(bot):
     bot.add_cog(Commands(bot))
