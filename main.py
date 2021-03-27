@@ -29,19 +29,6 @@ async def on_ready():
     for guild in bot.guilds:
         print(f"-{guild.name} ({guild.id})")
 
-# Command for generating bot invite link
-@bot.command(aliases=['i', 'link'])
-async def invite(ctx):
-    link = 'https://discord.com/api/oauth2/authorize?client_id=816638346193010700&permissions=8&scope=bot'
-    em = discord.Embed(
-        title = "CoolRedditBot Invite Link",
-        type = "rich",
-        color = 0xFF5700
-    )
-    em.add_field(name='Here you go :)', value=link)
-
-    await ctx.send(embed=em)
-
 # Command for sending all available commands
 @bot.command(aliases=['h', 'hlep', 'tolong'])
 async def help(ctx):
