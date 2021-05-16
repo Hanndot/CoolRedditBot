@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 from pathlib import Path
-import praw
 import random
 from discord.ext.commands import Bot
 import asyncio
@@ -35,7 +34,7 @@ async def changePresence():
 
     memberCount = len(set(bot.get_all_members()))
 
-    statuses = ["with your mom | >help", f"on {len(bot.guilds)} servers | >help", "Made by Hann#6130 | >help", f"with {memberCount} users"]
+    statuses = ["with your mom | >help", f"on {len(bot.guilds)} servers | >help", "Made by Hann#6130 | >help", f"with {memberCount} users | >help"]
 
     while not bot.is_closed():
         status = random.choice(statuses)
